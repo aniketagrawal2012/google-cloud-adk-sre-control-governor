@@ -156,8 +156,8 @@ Why did adding just $+1,200$ burst slots ($+60\%$ capacity) reduce BigQuery quer
 $$\mathbb{E}[W_q(\rho)] \approx \underbrace{\left(\frac{c_a^2 + c_s^2}{2}\right)}_{\text{Variability } V} \cdot \underbrace{\left(\frac{\rho}{1 - \rho}\right)}_{\text{Utilization } U} \cdot \underbrace{\mathbb{E}[S]}_{\text{Service Time } T}$$
 
 With arrival squared coefficient of variation $c_a^2 = 1.44$, stage service $c_s^2 = 1.96$ ($V = 1.70$), and mean stage service $\mathbb{E}[S] = 42.0\text{ ms}$:
-* At incident saturation $\rho_0 = \frac{1,988}{2,000} = 0.994$: $\frac{\rho_0}{1 - \rho_0} = \frac{0.994}{0.006} = 165.67 \implies \mathbb{E}[W_q(\rho_0)] = 1.70 \times 165.67 \times 42.0 = \mathbf{11,828.60\text{ ms}}$.
-* After provisioning $+1,200$ BigQuery Enterprise burst slots ($C_1 = 3,200$): $\rho_1 = \frac{1,988}{3,200} = 0.62125 \implies \frac{\rho_1}{1 - \rho_1} = 1.6403 \implies \mathbb{E}[W_q(\rho_1)] = 1.70 \times 1.6403 \times 42.0 = \mathbf{117.11\text{ ms}}$—a **$101\times$ (`-99.01%`) reduction in queueing latency**!
+* At incident saturation $\rho_0 = \frac{1,988}{2,000} = 0.994$, we have $\frac{\rho_0}{1 - \rho_0} = \frac{0.994}{0.006} = 165.67$, yielding $\mathbb{E}[W_q(\rho_0)] = 1.70 \times 165.67 \times 42.0 = \mathbf{11,828.60\text{ ms}}$.
+* After provisioning $+1,200$ BigQuery Enterprise burst slots ($C_1 = 3,200$), utilization drops to $\rho_1 = \frac{1,988}{3,200} = 0.62125$ ($\frac{\rho_1}{1 - \rho_1} = 1.6403$), yielding $\mathbb{E}[W_q(\rho_1)] = 1.70 \times 1.6403 \times 42.0 = \mathbf{117.11\text{ ms}}$ (**$101\times$** or **`-99.01%`** reduction in queueing latency).
 
 ---
 
