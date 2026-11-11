@@ -7,6 +7,8 @@
 Reference production implementation accompanying the Google Cloud Community mathematical & distributed-systems article:
 **"The control theory of autonomous Google Cloud agents: Lyapunov stability, ADK 2.2 workflow DAGs, Kingman queueing, and Cloud Spanner TrueTime"** by **Aniket Agrawal**.
 
+![Closed-Loop Google Cloud SRE & FinOps Control Plane Architecture](docs/figures/gcp_sre_fig1_hero_control_plane.gif)
+
 ## Architecture Overview
 
 This repository demonstrates how to replace unconstrained ReAct loops with a deterministic, mathematically bounded control plane using **Google Agent Development Kit (`google-adk >= 2.2.0`) Graph `Workflow`s**:
