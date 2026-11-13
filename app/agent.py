@@ -46,7 +46,7 @@ os.environ.setdefault("GOOGLE_CLOUD_PROJECT", _detected_project or "your-gcp-pro
 os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "global")
 os.environ.setdefault("GOOGLE_GENAI_USE_VERTEXAI", "True")
 
-# Active November 2026 global Vertex AI endpoints:
+# Active November 2026 global Gemini Enterprise Agent Platform endpoints:
 # - gemini-3.8-flash (GA low-latency control-plane triage)
 # - gemini-4-argon (GA high-precision root-cause & capacity reasoning)
 # - gemini-4-carbon (frontier deep verification)

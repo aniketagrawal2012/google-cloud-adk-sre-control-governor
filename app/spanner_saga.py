@@ -50,7 +50,7 @@ class CloudSpannerTrueTimeSaga:
     """Executes multi-service GCP mutations under TrueTime commit-wait with exact inverse rollback.
 
     Supports live Google Cloud Spanner client injection via `spanner_database` when deployed to
-    Vertex AI Agent Engine, plus an in-memory deterministic groupoid verifier for unit/chaos testing.
+    Agent Engine (Gemini Enterprise Agent Platform), plus an in-memory deterministic groupoid verifier for unit/chaos testing.
     """
 
     def __init__(self, epsilon_ms: float = 3.5, spanner_database: Any = None) -> None:

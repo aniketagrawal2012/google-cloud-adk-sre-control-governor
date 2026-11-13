@@ -2,7 +2,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Google ADK](https://img.shields.io/badge/Google_ADK-2.2.0_Workflow_DAG-4285F4)](https://adk.dev/workflows/index.md)
-[![Gemini Models](https://img.shields.io/badge/Vertex_AI-Gemini_3.8_Flash_%26_Gemini_4-0F9D58)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions)
+[![Gemini Models](https://img.shields.io/badge/Gemini_Platform-Gemini_3.8_Flash_%26_Gemini_4-0F9D58)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions)
 
 Reference production implementation accompanying the Google Cloud Community mathematical & distributed-systems article:
 **"The control theory of autonomous Google Cloud agents: Lyapunov stability, ADK 2.2 workflow DAGs, Kingman queueing, and Cloud Spanner TrueTime"** by **Aniket Agrawal**.
@@ -34,14 +34,14 @@ uv sync --dev
 # 2. Run deterministic unit & invariant tests
 uv run pytest -v
 
-# 3. Run live Vertex AI (location="global") ADK 2.2 Workflow + Gemini 3.8 Flash / Gemini 4 verification
+# 3. Run live Gemini Enterprise Agent Platform (location="global") ADK 2.2 Workflow + Gemini 3.8 Flash / Gemini 4 verification
 export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
 export GOOGLE_CLOUD_LOCATION="global"
-export GOOGLE_GENAI_USE_VERTEXAI="True"
+export GOOGLE_GENAI_USE_VERTEXAI="True"  # Legacy SDK routing flag for Gemini Enterprise Agent Platform
 uv run python scripts/live_gcp_verify.py
 ```
 
-## Live Verified Benchmark Summary (Vertex AI `global`, `google-adk==2.2.0`)
+## Live Verified Benchmark Summary (Gemini Enterprise Agent Platform `global`, `google-adk==2.2.0`)
 
 | Model / Runtime | Endpoint Location | Status | Wall Latency | Total Tokens | Structured Action Parity |
 | :--- | :---: | :---: | :---: | :---: | :---: |

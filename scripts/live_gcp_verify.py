@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Live GCP Vertex AI + ADK 2.2 Graph Workflow verification & benchmark runner."""
+"""Live Google Cloud Gemini Enterprise Agent Platform + ADK 2.2 Graph Workflow verification & benchmark runner."""
 
 from __future__ import annotations
 
