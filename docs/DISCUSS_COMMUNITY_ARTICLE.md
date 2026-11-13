@@ -6,7 +6,7 @@
 
 ---
 
-![Animated 4-zone closed-loop Google Cloud SRE and FinOps control plane architecture uniting Model Armor, Cloud SDP, ADK 2.2 Graph Workflows, Gemini 3.8 Flash, Gemini 4, Cloud Spanner TrueTime, Cloud Run, and BigQuery (Captioned by AI)|690x390](upload://cjalsFlyr8c0re5eajGMzmB9Zzj.gif)
+![Animated 4-zone closed-loop Google Cloud SRE and FinOps control plane architecture uniting Model Armor, Cloud SDP, ADK 2.2 Graph Workflows, Gemini 3.8 Flash, Gemini 4, Cloud Spanner TrueTime, Cloud Run, and BigQuery (Captioned by AI)|690x390](upload://7qX6oWW73E6Cf5UPHVxEy5jIw2O.gif)
 *Figure 1 (Animated 4-Zone Architecture — Masked Production Environment `gcp-sre-governor-prod`): Closed-loop control-plane architecture uniting Google Cloud Model Armor, Sensitive Data Protection (SDP), Google Agent Development Kit (`google-adk==2.2.0`) Graph `Workflow` DAGs on Agent Engine (Gemini Enterprise Agent Platform), Gemini 3.8 Flash & Gemini 4 (`location="global"`), Gemini Enterprise Dual-Tier Context Caching (`72,000` static tokens), Cloud Spanner TrueTime (`2*epsilon = 7.0 ms` commit-wait), Cloud Run traffic splitting, BigQuery Enterprise slot reservations, and Google Cloud Trace.*
 
 ---
@@ -121,7 +121,7 @@ At $1,000,000$ multi-region incidents per second, the expected mean time to a si
 
 In `google-adk >= 2.2.0`, multi-step agent topologies no longer need to rely on implicit LLM routing between sub-agents. Instead, [`google.adk.workflow.Workflow`](https://adk.dev/workflows/index.md) compiles Python functions (`@node`), `JoinNode` barriers, `LlmAgent` nodes with strict Pydantic `output_schema`, and conditional `Event(route=...)` edges into an explicit directed acyclic graph (DAG):
 
-![Google ADK 2.2 Graph Workflow topology diagram showing START, telemetry_dispatcher, 4 parallel GCP telemetry probes, JoinNode, LlmAgent with callbacks, and conditional Event routing (Captioned by AI)|690x380](upload://uUB3gKCszITL7y5GcX41BUNiGTC.png)
+![Google ADK 2.2 Graph Workflow topology diagram showing START, telemetry_dispatcher, 4 parallel GCP telemetry probes, JoinNode, LlmAgent with callbacks, and conditional Event routing (Captioned by AI)|690x380](upload://99ih8OgrKGYlgdfMnNcygLyF7hY.png)
 *Figure 4 (Architecture Diagram — `app/agent.py`): Exact `google-adk==2.2.0` Graph `Workflow` topology (`gcp_sre_control_governor`) executing 4 concurrent GCP telemetry probes (`cloud_monitoring_slo_probe`, `bigquery_slot_forensics_probe`, `cloud_trace_span_probe`, `spanner_lease_status_probe`), synchronizing at `JoinNode('telemetry_join')`, synthesizing a typed `SRESynthesisDecision` via `LlmAgent`, and branching deterministically via `Event(route=...)`.*
 
 ### Theorem 1: Fork-join order-statistic tail latency compression via `JoinNode`
@@ -473,7 +473,7 @@ class TrueTimeInterval:
 
 Every equation, callback, and workflow edge in our companion repository was executed **live against Google Cloud’s Gemini Enterprise Agent Platform (`location="global"`)** using `google-adk==2.2.0` and `google-genai==2.8.0` via [`scripts/live_gcp_verify.py`](https://github.com/aniketagrawal2012/google-cloud-adk-sre-control-governor/blob/main/scripts/live_gcp_verify.py) (with project identifiers masked as `gcp-sre-governor-prod`):
 
-![Live Google Cloud Gemini Enterprise Agent Platform global endpoint execution ledger and Gemini 3.8 Flash vs Gemini 4 Argon vs Gemini 4 Carbon latency and token breakdown (Captioned by AI)|690x390](upload://ncn8iBgbbY1joB0mL8I41ZmIMr1.png)
+![Live Google Cloud Gemini Enterprise Agent Platform global endpoint execution ledger and Gemini 3.8 Flash vs Gemini 4 Argon vs Gemini 4 Carbon latency and token breakdown (Captioned by AI)|690x390](upload://yLMO5pJFvNSjuXb2IbKIBXLDpKg.png)
 *Figure 8 (Live Verified Telemetry — Masked Project `gcp-sre-governor-prod`, Endpoint `global`): **(A)** Live wall-clock latency across `gemini-3.8-flash` (`8.06 s`), `gemini-4-argon` (`7.18 s`), and `gemini-4-carbon` (`53.02 s`). **(B)** Exact `usage_metadata` token breakdown (`prompt`, `thoughts`, and `candidate` JSON tokens). **Bottom:** Full 12-event live `InMemoryRunner` execution trace of our ADK 2.2 `Workflow` (`11,355.64 ms` total wall time, Cloud Spanner saga `saga-87be813f73 -> COMMITTED`).*
 
 ### Table 2: Live Gemini Enterprise Agent Platform `global` endpoint verification & multi-model parity (November 2026)
