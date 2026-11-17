@@ -49,3 +49,10 @@ uv run python scripts/live_gcp_verify.py
 | **`gemini-3.8-flash` (GA)** | `global` | `HTTP 200 OK` | `8,062.97 ms` | `1,569` | `100%` (`rho: 0.994 -> 0.62125`) |
 | **`gemini-4-argon` (GA)** | `global` | `HTTP 200 OK` | `7,176.87 ms` | `1,216` | `100%` (`rho: 0.994 -> 0.62125`) |
 | **`gemini-4-carbon`** | `global` | `HTTP 200 OK` | `53,019.60 ms` | `1,742` | `100%` (`rho: 0.994 -> 0.62125`) |
+
+---
+
+## Companion Architecture & Research Series (By the Same Author)
+
+- **[The Periodic Table of Gemini 4 on Google Cloud (Google Cloud - Community)](https://medium.com/google-cloud/the-periodic-table-of-gemini-4-routing-hydrogen-carbon-argon-on-google-cloud-d544d0a65e9a)** · **[`google-cloud-gemini4-periodic-lab`](https://github.com/aniketagrawal2012/google-cloud-gemini4-periodic-lab)** · **[Interactive GitHub Pages Benchmark Lab](https://aniketagrawal2012.github.io/google-cloud-gemini4-periodic-lab/)** — 255+ live Google Cloud calls routing `gemini-4-hydrogen`, `gemini-4-carbon`, and `gemini-4-argon` with thinking-depth FinOps (`13.7x` cost spread), `95%` implicit caching, Cloud Storage `gs://` Office ingestion, BigQuery views, and Cloud Run gateway.
+- **[Why 90% of AI Agents Fail in Production (Google Cloud - Community)](https://medium.com/google-cloud/why-90-of-ai-agents-fail-in-production-architecting-a-self-healing-multi-agent-system-on-google-f73dfcc08f73)** · **[`google-cloud-adk-order-to-cash-agent`](https://github.com/aniketagrawal2012/google-cloud-adk-order-to-cash-agent)** — Self-healing enterprise Order-to-Cash multi-agent reference using ADK 2.2 callbacks, Agent Runtime, Gen AI evaluation service, Spanner compensating sagas, and BigQuery.
